@@ -1,0 +1,25 @@
+## example ~/.ssh/config file
+Host *
+  ForwardAgent yes
+  ForwardX11 yes
+  Protocol 2,1
+  ServerAliveInterval 55
+# Specialize per hosts
+### The Bastion Hosts
+Host pa-pub
+  HostName pa-pub.umd.edu
+Host pub
+  HostName pub.icecube.wisc.edu
+### The hosts on dedicated private subets
+Host condor00
+  User blaufuss
+  ForwardAgent yes
+  ProxyJump pa-pub
+  KeepAlive yes
+  ServerAliveInterval 55
+Host cobalt*  followup-* 
+  User blaufuss
+  ForwardAgent yes
+  ProxyJump pub
+  KeepAlive yes
+  ServerAliveInterval 55
