@@ -12,13 +12,14 @@ Host pub
   HostName pub.icecube.wisc.edu
 ### The hosts on dedicated private subets
 Host condor00
-  User blaufuss
+  # Specific User if your username on remote system is different than local one
+  #User remote_username
   ForwardAgent yes
   ProxyJump pa-pub
   KeepAlive yes
   ServerAliveInterval 55
 Host cobalt*  followup-* 
-  User blaufuss
+  #User remote_username
   ForwardAgent yes
   ProxyJump pub
   KeepAlive yes
